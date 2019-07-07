@@ -17,9 +17,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-
 Route::group(['prefix' => 'articles'], function (){
     Route::get('/', 'HomeController@index');
     Route::get('/create', 'ArticleController@create');
+    Route::post('/store', 'ArticleController@store');
 });
 
