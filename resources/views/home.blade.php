@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div >
-        <a href="/article/create"><button></button></a>
+        <a href="/articles/create"><button class="btn btn-primary">Create Article</button></a>
     </div>
     <div class="row justify-content-center">
 
