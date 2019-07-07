@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class ArticleController extends Controller
 {
+    public function index(){
+        $articles = Article::all();
+        return view('home')->with('articles', $articles);
+    }
+
     public function create(){
         $users  = User::all();
         return view('create')->with('users', $users);
@@ -16,6 +21,7 @@ class ArticleController extends Controller
     public function store(Request $request){
         $this->validate($request, [
             'heading' => 'required',
+            'subheading' => 'required',
             'text' => 'required',
             'article_images' => 'image|nullable|max:1999'
         ]);
@@ -37,6 +43,7 @@ class ArticleController extends Controller
 
         $articles = new Article;
         $articles->heading = $request->input('heading');
+        $articles->subheading = $request->input('subheading');
         $articles->text = $request->input('text');
         $articles->user_id = $request->input('user_id');
         $articles->article_images = $fileNameToStore;
@@ -44,5 +51,17 @@ class ArticleController extends Controller
         $articles->save();
 
         return redirect('/articles')->with('success', 'Successfully added a new article');
+    }
+
+    public function show($id){
+        $article = Article::find($id);
+        $users = User::all();
+
+        $article_userid = $article->user_id;
+        return view('show',[
+            'article' => $article,
+            'article_userid' => $article_userid,
+            'users' => $users
+        ]);
     }
 }

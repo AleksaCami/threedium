@@ -28,6 +28,20 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="subheading" class="col-md-4 col-form-label text-md-right">{{ __('Article subheading') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="subheading" type="text" class="form-control @error('subheading') is-invalid @enderror" name="subheading" value="{{ old('subheading') }}" required autocomplete="subheading" autofocus>
+
+                                    @error('subheading')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('Article content') }}</label>
 
                                 <div class="col-md-6">
