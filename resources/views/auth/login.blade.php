@@ -49,6 +49,13 @@
                     </form>
                 </div>
             </div>
+            <div class="card-body mt-lg-5">
+                <div class="alert-info p-3">
+                    <span>Username: <b>test@gmail.com</b></span>
+                    <br>
+                    <span>Password: <b>12345678</b></span>
+                </div>
+            </div>
         </div>
     </div>
 </div>
