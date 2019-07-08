@@ -17,4 +17,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Brisanje clanaka iz tabele
 Route::post('/articles/destroy/{id}', 'ArticleController@destroy');
+
+// Get clanaka iz baze u tabelu
+Route::get('data', 'ArticleController@getData');

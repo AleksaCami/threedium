@@ -9,6 +9,7 @@
         <span>You don't have any articles. Try writing one!</span>
     @else
         <div class="row py-3">
+            <div id="myData"></div>
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered">
                     <thead>
@@ -47,6 +48,27 @@
     @endif
 </div>
     <script type="text/javascript">
+
+        const articles = 'http://127.0.0.1:8000/api/data'
+        const response = fetch(articles);
+
+        response.then(function(response) {
+            return response.json();
+        }).then(function(data) {
+            appendData(data);
+        }).catch(function (err) {
+           console.log(err);
+        });
+        //
+        // function appendData(data) {
+        //     let mainContainer = document.getElementById("myData");
+        //     for (let i = 0; i < data.length; i++) {
+        //         let div = document.createElement("div");
+        //         div.innerHTML = data[i].heading;
+        //         mainContainer.appendChild(div);
+        //     }
+        // }
+
         $('#example').DataTable({
                 "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
                 "iDisplayLength": 5

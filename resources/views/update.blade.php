@@ -12,10 +12,10 @@
                             @csrf
                             @method('PUT')
 
-                            <div class="form-group row">
-                                <label for="heading" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                            <div class="form-group">
+                                <label for="heading" class="col">{{ __('Title') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col">
                                     <input id="heading" type="text" class="form-control @error('heading') is-invalid @enderror" name="heading" value="{{ old('heading', $article->heading) }}" required autocomplete="heading" autofocus>
 
                                     @error('heading')
@@ -26,10 +26,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="subheading" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                            <div class="form-group">
+                                <label for="subheading" class="col">{{ __('Description') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col">
                                     <textarea id="subheading" type="text" class="form-control @error('subheading') is-invalid @enderror" name="subheading" required autocomplete="subheading" autofocus>{{ $article->subheading }}</textarea>
 
                                     @error('subheading')
@@ -40,11 +40,11 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
+                            <div class="form-group">
+                                <label for="text" class="col">{{ __('Content') }}</label>
 
-                                <div class="col-md-6">
-                                    <textarea id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text"  required autocomplete="text">{{ $article->text }}
+                                <div class="col">
+                                    <textarea id="summary-ckeditor" type="text" class="form-control @error('text') is-invalid @enderror" name="text"  required autocomplete="text">{{ $article->text }}
                                     </textarea>
                                     @error('text')
                                     <span class="invalid-feedback" role="alert">
@@ -54,10 +54,10 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="article_images" class="col-md-4 col-form-label text-md-right">{{ __('Add cover image') }}</label>
+                            <div class="form-group">
+                                <label for="article_images" class="col">{{ __('Add cover image') }}</label>
 
-                                <div class="col-md-6">
+                                <div class="col">
                                     <input type="file" name="article_images">
                                 </div>
                             </div>
@@ -75,4 +75,8 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
+    <script>
+        CKEDITOR.replace( 'summary-ckeditor' );
+    </script>
 @endsection
