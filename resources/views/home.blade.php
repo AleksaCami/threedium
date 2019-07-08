@@ -21,7 +21,7 @@
                                 <h5 id="" class="card-text">{{$article->subheading}}</h5>
                             </figcaption>
                             <div class="bottom-wrap">
-                                <a href="/articles/article/{{$article->id}}">
+                                <a href="/articles/{{$article->id}}">
                                     <button  class="btn btn-block btn-primary float-right">
                                         Open
                                     </button>

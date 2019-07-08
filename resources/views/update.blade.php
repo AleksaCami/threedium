@@ -5,19 +5,20 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('New article') }}</div>
+                    <div class="card-header">{{ __('Update article') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="/articles/store" enctype="multipart/form-data">
+                        <form method="POST" action="/articles/update/{{$article->id}}" enctype="multipart/form-data">
                             @csrf
+                            @method('PUT')
 
-                            <input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>
+                            {{--                            <input type="text" name="user_id" value="{{ Auth::user()->id }}" hidden>--}}
 
                             <div class="form-group row">
                                 <label for="heading" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
 
                                 <div class="col-md-6">
-                                    <input id="heading" type="text" class="form-control @error('heading') is-invalid @enderror" name="heading" value="{{ old('heading') }}" required autocomplete="heading" autofocus>
+                                    <input id="heading" type="text" class="form-control @error('heading') is-invalid @enderror" name="heading" value="{{ old('heading', $article->heading) }}" required autocomplete="heading" autofocus>
 
                                     @error('heading')
                                     <span class="invalid-feedback" role="alert">
@@ -31,7 +32,7 @@
                                 <label for="subheading" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="subheading" type="text" class="form-control @error('subheading') is-invalid @enderror" name="subheading" value="{{ old('subheading') }}" required autocomplete="subheading" autofocus></textarea>
+                                    <textarea id="subheading" type="text" class="form-control @error('subheading') is-invalid @enderror" name="subheading" required autocomplete="subheading" autofocus>{{ $article->subheading }}</textarea>
 
                                     @error('subheading')
                                     <span class="invalid-feedback" role="alert">
@@ -45,7 +46,8 @@
                                 <label for="text" class="col-md-4 col-form-label text-md-right">{{ __('Content') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text" value="{{ old('text') }}" required autocomplete="text"></textarea>
+                                    <textarea id="text" type="text" class="form-control @error('text') is-invalid @enderror" name="text"  required autocomplete="text">{{ $article->text }}
+                                    </textarea>
                                     @error('text')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>

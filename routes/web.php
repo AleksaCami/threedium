@@ -21,10 +21,7 @@ Route::group(['prefix' => 'articles'], function (){
     Route::get('/', 'ArticleController@index');
     Route::get('/create', 'ArticleController@create');
     Route::post('/store', 'ArticleController@store');
-    Route::get('/article/{id}', 'ArticleController@show');
+    Route::get('/{id}', 'ArticleController@show');
+    Route::get('/edit/{id}', 'ArticleController@edit');
+    Route::put('/update/{id}', 'ArticleController@update');
 });
-
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
