@@ -17,4 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::delete('/articles/destroy/{id}', 'ArticleController@destroy');
+Route::post('/articles/destroy/{id}', 'ArticleController@destroy');
