@@ -39,32 +39,12 @@
             </table>
         </div>
     </div>
-{{--    <div class="row justify-content-center">--}}
-{{--        @if(count($articles) == 0)--}}
-{{--            <span>No articles. Try adding one!</span>--}}
-{{--        @else--}}
-
-{{--                @foreach($articles as $article)--}}
-{{--                    <div  class="col-md-4 col-lg-4 mt-3">--}}
-{{--                        <figure class="card card-product p-3 flex-fixed-width-item h-100">--}}
-{{--                            <div class="d-flex m-4"><img class="img-fluid" style="object-fit: cover; height: 35vh; width: auto" src="/storage/article_images/{{$article->article_images}}"></div>--}}
-{{--                            <figcaption class="info-wrap">--}}
-{{--                                <h2 id="" class="title">{{$article->heading}}</h2>--}}
-{{--                            </figcaption>--}}
-{{--                            <figcaption class="info-wrap mb-2">--}}
-{{--                                <h5 id="" class="card-text">{{$article->subheading}}</h5>--}}
-{{--                            </figcaption>--}}
-{{--                            <div class="bottom-wrap">--}}
-{{--                                <a href="/articles/{{$article->id}}">--}}
-{{--                                    <button  class="btn btn-block btn-primary float-right">--}}
-{{--                                        Open--}}
-{{--                                    </button>--}}
-{{--                                </a>--}}
-{{--                            </div> <!-- bottom-wrap.// -->--}}
-{{--                        </figure>--}}
-{{--                    </div> <!-- col // -->--}}
-{{--                @endforeach--}}
-{{--            @endif--}}
-{{--    </div>--}}
 </div>
+    <script type="text/javascript">
+        $('#example').DataTable({
+                "aLengthMenu": [[5, 10, 25, -1], [5, 10, 25, "All"]],
+                "iDisplayLength": 5
+            }
+        );
+    </script>
 @endsection

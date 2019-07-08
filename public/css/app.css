@@ -11100,7 +11100,22 @@ a.text-dark:focus {
   }
 }
 
-input {
+table {
   width: 100%;
+}
+
+#example_filter {
+  float: right;
+}
+
+#example_paginate {
+  float: right;
+}
+
+label {
+  display: -webkit-inline-box;
+  display: inline-flex;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
 }
 
