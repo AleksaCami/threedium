@@ -46,5 +46,41 @@
                 "iDisplayLength": 5
             }
         );
+
+        $(document).on('click', '#deleteArticle', function(e) {
+            e.preventDefault();
+            let id = $(this).data('id');
+
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "This action is irreversible!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Delete'
+            }).then(function(result) {
+                if(result.value){
+                    $.ajax({
+                        type: "DELETE",
+                        url: 'http://127.0.0.1:8000/api/articles/destroy/' + id,
+                        data: {id:id},
+                        complete: function (data) {
+                            window.location.reload();
+                        }
+                    });
+
+                    console.log(result.value);
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    Swal.fire(
+                        'Canceled',
+                        'Your files are safe!',
+                        'error'
+                    )
+                }
+            })
+        });
     </script>
 @endsection

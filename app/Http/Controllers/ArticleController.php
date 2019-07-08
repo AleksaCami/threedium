@@ -110,4 +110,11 @@ class ArticleController extends Controller
 
         return redirect('/articles')->with('success', 'Successfully updated article');
     }
+
+    public function destroy(Request $request, $id){
+        $article = Article::find($id);
+        $article->delete();
+
+        return response()->json($request);
+    }
 }
