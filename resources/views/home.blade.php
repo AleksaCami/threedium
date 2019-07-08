@@ -6,9 +6,13 @@
         <a href="/articles/create"><button class="btn btn-primary">Create Article</button></a>
     </div>
     @if(count($articles) == 0)
-        <span>You don't have any articles. Try writing one!</span>
+        <div class="container py-3">
+            <div class="align-content-center" style="text-align: center">
+                <span>You don't have any articles. Try writing one!</span>
+            </div>
+        </div>
     @else
-        <div class="row py-3">
+        <div class="row py-4">
             <div id="myData"></div>
             <div class="table-responsive">
                 <table id="example" class="table table-striped table-bordered">
