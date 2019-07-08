@@ -13,6 +13,7 @@
                     <th scope="col" style="width: 100px">Cover image</th>
                     <th scope="col">Title</th>
                     <th scope="col" class="">Description</th>
+                    <th scope="col">Author</th>
                     <th scope="col">Open</th>
                     <th scope="col">Update</th>
                     <th scope="col">Delete</th>
@@ -24,6 +25,7 @@
                         <td><img class="img-fluid" style="height: auto" src="/storage/article_images/{{$article->article_images}}"></td>
                         <td>{{$article->heading}}</td>
                         <td>{{$article->subheading}}</td>
+                        <td>{{$article->user->name}}</td>
                         <td>
                             <a href="/articles/{{$article->id}}"><button  class="btn btn-block btn-primary float-right">Open</button></a>
                         </td>
