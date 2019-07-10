@@ -24,13 +24,13 @@ class CreateUsersTable extends Migration
             $table->timestamps();
         });
         // Za slucaj da ne pokrenete db seed komandu radi automatskog dodavanja korisnika u bazu
-        DB::connection('mysql')->table('users')->insert([
-            [
-                'name' => 'test',
-                'email' => 'test@gmail.com',
-                'password' => Hash::make('12345678')
-            ],
-        ]);
+//        DB::connection('mysql')->table('users')->insert([
+//            [
+//                'name' => 'test',
+//                'email' => 'test@gmail.com',
+//                'password' => Hash::make('12345678')
+//            ],
+//        ]);
     }
 
     /**
