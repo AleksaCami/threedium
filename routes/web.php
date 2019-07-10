@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::group(['prefix' => 'articles'], function (){
+Route::group(['prefix' => 'articles', 'middleware' => 'auth'], function (){
     Route::get('/', 'ArticleController@index');
     Route::get('/create', 'ArticleController@create');
     Route::post('/store', 'ArticleController@store');
