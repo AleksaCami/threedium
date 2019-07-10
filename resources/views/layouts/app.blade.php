@@ -47,7 +47,7 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm" style="position: sticky; top: 0; z-index: 1000;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/articles') }}">
-                   <span>Threedium Articles</span>
+                   <button class="btn btn-outline-secondary">Threedium Articles</button>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -55,9 +55,6 @@
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav">
-                        <li><a href="/articles"><button class="btn">Articles</button></a></li>
-                    </ul>
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
@@ -82,6 +79,7 @@
         </nav>
 
         <main class="py-0">
+            @include('includes.messages')
             @yield('content')
         </main>
     </div>

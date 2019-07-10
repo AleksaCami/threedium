@@ -115,11 +115,12 @@ class ArticleController extends Controller
         $article = Article::find($id);
         $article->delete();
 
-        return response()->json(null, 204);
+        return response()->json($article);
     }
 
     public function getData(){
         $articles = Article::all();
         return response()->json($articles);
     }
+
 }

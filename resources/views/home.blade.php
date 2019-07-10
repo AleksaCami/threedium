@@ -20,7 +20,7 @@
                     <tr>
                         <th scope="col" style="width: 100px">Cover image</th>
                         <th scope="col">Title</th>
-                        <th scope="col" class="">Description</th>
+                        <th scope="col">Description</th>
                         <th scope="col">Author</th>
                         <th scope="col">Open</th>
                         <th scope="col">Update</th>
@@ -82,6 +82,7 @@
         $(document).on('click', '#deleteArticle', function(e) {
             e.preventDefault();
             let id = $(this).data('id');
+            let $tr = $(this).closest('tr');
 
             Swal.fire({
                 title: 'Are you sure?',
@@ -98,11 +99,17 @@
                         url: 'http://127.0.0.1:8000/api/articles/destroy/' + id,
                         data: {id:id},
                         complete: function (data) {
-                          window.location.reload();
+                            Swal.fire(
+                                `${data.responseJSON.heading} successfully deleted!`,
+                                '',
+                                'success'
+                            );
+                            $tr.find('td').fadeOut(1000, function(){
+                                $tr.remove();
+                                window.location.reload();
+                            });
                         }
                     });
-
-                    console.log(result.value);
                 } else if (
                     result.dismiss === Swal.DismissReason.cancel
                 ) {
