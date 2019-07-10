@@ -13,12 +13,12 @@
                             @method('PUT')
 
                             <div class="form-group">
-                                <label for="heading" class="col">{{ __('Title') }}</label>
+                                <label for="title" class="col">{{ __('Title') }}</label>
 
                                 <div class="col">
-                                    <input id="heading" type="text" class="form-control @error('heading') is-invalid @enderror" name="heading" value="{{ old('heading', $article->heading) }}" required autocomplete="heading" autofocus>
+                                    <input id="title" type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ old('title', $article->title) }}" required autocomplete="title" autofocus>
 
-                                    @error('heading')
+                                    @error('title')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -27,12 +27,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="subheading" class="col">{{ __('Description') }}</label>
+                                <label for="description" class="col">{{ __('Description') }}</label>
 
                                 <div class="col">
-                                    <textarea id="subheading" type="text" class="form-control @error('subheading') is-invalid @enderror" name="subheading" required autocomplete="subheading" autofocus>{{ $article->subheading }}</textarea>
+                                    <textarea id="description" type="text" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description" autofocus>{{ $article->description }}</textarea>
 
-                                    @error('subheading')
+                                    @error('description')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

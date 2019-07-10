@@ -20,8 +20,8 @@ class ArticleController extends Controller
 
     public function store(Request $request){
         $this->validate($request, [
-            'heading' => 'required',
-            'subheading' => 'required',
+            'title' => 'required',
+            'description' => 'required',
             'text' => 'required',
             'article_images' => 'image|nullable|max:1999'
         ]);
@@ -42,8 +42,8 @@ class ArticleController extends Controller
         }
 
         $articles = new Article;
-        $articles->heading = $request->input('heading');
-        $articles->subheading = $request->input('subheading');
+        $articles->title = $request->input('title');
+        $articles->description = $request->input('description');
         $articles->text = $request->input('text');
         $articles->user_id = $request->input('user_id');
         $articles->article_images = $fileNameToStore;
@@ -79,8 +79,8 @@ class ArticleController extends Controller
 
     public function update(Request $request, $id){
         $this->validate($request, [
-            'heading' => 'required',
-            'subheading' => 'required',
+            'title' => 'required',
+            'description' => 'required',
             'text' => 'required',
             'article_images' => 'image|nullable|max:1999'
         ]);
@@ -101,8 +101,8 @@ class ArticleController extends Controller
         }
 
         $article = Article::find($id);
-        $article->heading = $request->input('heading');
-        $article->subheading = $request->input('subheading');
+        $article->title = $request->input('title');
+        $article->description = $request->input('description');
         $article->text = $request->input('text');
         $article->article_images = $fileNameToStore;
 

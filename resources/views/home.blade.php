@@ -31,8 +31,8 @@
                     @foreach($articles as $article)
                         <tr>
                             <td><img class="img-fluid" style="height: auto" src="/storage/article_images/{{$article->article_images}}"></td>
-                            <td>{{$article->heading}}</td>
-                            <td>{{$article->subheading}}</td>
+                            <td>{{$article->title}}</td>
+                            <td>{{$article->description}}</td>
                             <td>{{$article->user->name}}</td>
                             <td>
                                 <a href="/articles/{{$article->id}}"><button  class="btn btn-block btn-primary float-right">Open</button></a>
@@ -100,7 +100,7 @@
                         data: {id:id},
                         complete: function (data) {
                             Swal.fire(
-                                `${data.responseJSON.heading} successfully deleted!`,
+                                `${data.responseJSON.title} successfully deleted!`,
                                 '',
                                 'success'
                             );
